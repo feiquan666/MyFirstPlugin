@@ -1,27 +1,19 @@
 <idea-plugin>
-  <id>com.github.feiquan666.myfirstplugin</id>
-  <name>MyFirstPlugin</name>
-  <vendor>feiquan666</vendor>
+    <id>com.github.feiquan666.myfirstplugin</id>
+    <name>MyFirstPlugin</name>
+    <vendor>feiquan666</vendor>
 
-  <!-- Product and plugin compatibility requirements -->
-  <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
-  <depends>com.intellij.modules.platform</depends>
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <applicationService
-      serviceInterface=""
-      serviceImplementation="com.github.feiquan666.myfirstplugin.services.impl.MyApplicationService"/>
-    <projectService
-      serviceImplementation="com.github.feiquan666.myfirstplugin.services.impl.MyProjectService"/>
-    <moduleService
-      serviceImplementation="com.github.feiquan666.myfirstplugin.services.impl.MyModuleService"/>
-  </extensions>
-  <extensions defaultExtensionNs="com.intellij">
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.github.feiquan666.myfirstplugin.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.feiquan666.myfirstplugin.services.MyProjectService"/>
+    </extensions>
 
-  </extensions>
-
-  <applicationListeners>
-    <listener class="com.github.feiquan666.myfirstplugin.listeners.MyProjectManagerListener"
-      topic="com.intellij.openapi.project.ProjectManagerListener"/>
-  </applicationListeners>
+    <applicationListeners>
+        <listener class="com.github.feiquan666.myfirstplugin.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
 </idea-plugin>
